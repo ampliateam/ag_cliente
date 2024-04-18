@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${DOCKER_CONTAINER_NAME}
+    image: ${DOCKER_IMAGE}
+    ports:
+      - "${DOCKER_PORT_EXTERNO}:${DOCKER_PORT_INTERNO}"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${ENVIRONMENT}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
+    command: >
+      sh -c "if [ '$ENVIRONMENT' = 'local_development' ]; then
+        npm run dev;
+      elif [ '$ENVIRONMENT' = 'development' ]; then
+        npm run start:dev;
+      elif [ '$ENVIRONMENT' = 'testing' ]; then
+        npm run start:test;
+      elif [ '$ENVIRONMENT' = 'production' ]; then
+        npm run start:prod;
+      else
+        echo 'ERROR: Invalid ENVIRONMENT value' && exit 1;
+      fi"

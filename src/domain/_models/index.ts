@@ -1,0 +1,1 @@
+export * from './error-capa-domain.model';

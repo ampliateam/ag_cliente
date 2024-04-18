@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: ag_cliente_mongodb
+    ports:
+      - '27018:27017'
+    volumes:
+      - ag_cliente_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=ag_cliente
+
+volumes:
+  ag_cliente_data:

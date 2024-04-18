@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "outDir": "dist",
+        "sourceMap": true,
+        "inlineSources": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "ES2022",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "@domain/*": ["src/domain/*"],
+            "@global/*": ["src/global/*"],
+            "@presentation/*": ["src/presentation/*"]
+        }
+    },
+    "compileOnSave": true,
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "domain/*/_test"
+    ]
+}
