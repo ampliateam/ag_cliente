@@ -3,11 +3,10 @@
   "scripts": {
     "cl": "docker-compose -f docker-compose-conexion-local.yml up",
     "dev": "nodemon",
+    "test": "cross-env MODO_TEST=true jest",
     "start:dev": "",
     "start:test": "",
-    "start:prod": "",
-    "wtest": "set MODO_TEST=true && jest",
-    "ltest": "MODO_TEST=true && jest"
+    "start:prod": ""
   },
   "engines": {
     "node": "18"
@@ -30,6 +29,7 @@
     "@types/jest": "^29.5.12",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.11.30",
+    "cross-env": "^7.0.3",
     "jest": "^29.7.0",
     "nodemon": "^3.0.1",
     "ts-jest": "^29.1.2",
