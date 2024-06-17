@@ -4,7 +4,7 @@ import {
     BuscarClienteDTO,
     ActualizarClienteDTO
 } from '../dto';
-import * as repository from '../repository';
+import * as repository from '../repository/mongodb';
 
 export const crear = async (dto: CrearClienteDTO): Promise<ICliente> => {
     return await repository.crud.crear(dto);

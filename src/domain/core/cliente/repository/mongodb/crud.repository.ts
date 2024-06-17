@@ -1,5 +1,5 @@
 import { ICliente } from "@global/models/interfaces";
-import { ActualizarClienteDTO, BuscarClienteDTO, CrearClienteDTO } from "../dto";
+import { ActualizarClienteDTO, BuscarClienteDTO, CrearClienteDTO } from "../../dto";
 import { ClienteModel } from "@domain/_connections/mongodb";
 import { mongoToCliente } from "@domain/_helpers";
 

@@ -1,6 +1,6 @@
 import { ICliente } from "@global/models/interfaces";
 import { EliminarLogicamenteClienteDTO } from "../dto";
-import * as repository from '../repository';
+import * as repository from '../repository/mongodb';
 
 export const eliminarLogicamente = async (dto: EliminarLogicamenteClienteDTO): Promise<ICliente> => {
     return await repository.crud.actualizar({
