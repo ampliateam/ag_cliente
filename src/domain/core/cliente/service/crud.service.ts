@@ -5,9 +5,18 @@ import {
     ActualizarClienteDTO
 } from '../dto';
 import * as repository from '../repository/mongodb';
+import { services } from '@domain/services';
 
 export const crear = async (dto: CrearClienteDTO): Promise<ICliente> => {
-    return await repository.crud.crear(dto);
+    const result = await repository.crud.crear(dto);
+
+    await services.extern.algolia.operacionRegistroAlgolia({
+        data: result,
+        operacion: 'crear',
+        tipoRegistro: 'cliente',
+    });
+
+    return result;
 }
 
 export const obtener = async (dto: BuscarClienteDTO): Promise<ICliente> => {
@@ -15,5 +24,16 @@ export const obtener = async (dto: BuscarClienteDTO): Promise<ICliente> => {
 }
 
 export const actualizar = async (dto: ActualizarClienteDTO): Promise<ICliente> => {
-    return await repository.crud.actualizar(dto);
+    const result = await repository.crud.actualizar(dto);
+
+    await services.extern.algolia.operacionRegistroAlgolia({
+        data: {
+            ...dto.actualizado,
+            id: result.id,
+        },
+        operacion: 'actualizar',
+        tipoRegistro: 'cliente',
+    });
+
+    return result;
 }

@@ -5,6 +5,10 @@ dotenv.config();
 
 export const envs = {
     modoTest: process.env.MODO_TEST === 'true',
+    idDevAmplia: process.env.ID_DEV_AMPLIA,
+    algoliaAmpliaApplicationId: process.env.ALGOLIA_AMPLIA_APPLICATION_ID,
+    algoliaAmpliaApiKey: process.env.ALGOLIA_AMPLIA_API_KEY,
+    algoliaAmpliaIndexCliente: process.env.ALGOLIA_AMPLIA_INDEX_CLIENTE,
     codigoUsuarioExterno: process.env.CODIGO_USUARIO_EXTERNO,
     contrasenaUsuarioExterno: process.env.CONTRASENA_USUARIO_EXTERNO,
     dockerContainerName: process.env.DOCKER_CONTAINER_NAME,
@@ -15,6 +19,6 @@ export const envs = {
     mongoURI: process.env.MONGO_URI,
 };
 
-if (envs.modoTest && envs.environment !== 'local_development') {
+if (envs.modoTest && envs.environment !== 'personal') {
     throw new Error('El sistema no puede estar en modo test en entornos remotos.');
 }

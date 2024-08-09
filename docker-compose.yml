@@ -17,7 +17,7 @@ services:
       - /usr/src/app/node_modules
       - /usr/src/app/dist
     command: >
-      sh -c "if [ '$ENVIRONMENT' = 'local_development' ]; then
+      sh -c "if [ '$ENVIRONMENT' = 'personal' ]; then
         npm run dev;
       elif [ '$ENVIRONMENT' = 'development' ]; then
         npm run start:dev;
