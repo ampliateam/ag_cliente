@@ -1,7 +1,6 @@
 {
   "name": "ag_cliente",
   "scripts": {
-    "cl": "docker-compose -f docker-compose-conexion-local.yml up",
     "dev": "nodemon",
     "test": "cross-env MODO_TEST=true jest",
     "start:dev": "",
@@ -13,6 +12,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
+    "algoliasearch": "^4.24.0",
     "axios": "^1.6.2",
     "class-validator": "^0.14.1",
     "cors": "^2.8.5",

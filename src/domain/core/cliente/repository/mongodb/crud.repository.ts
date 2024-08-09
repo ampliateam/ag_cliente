@@ -35,5 +35,5 @@ export const actualizar = async (dto: ActualizarClienteDTO): Promise<ICliente> =
         _id: cliente.id
     }, dto.actualizado);
 
-    return Object.assign(cliente, dto.actualizado);
+    return Object.assign({}, cliente, dto.actualizado);
 }

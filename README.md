@@ -1,19 +1,15 @@
 ## Valores del .env
 ```
-ENVIRONMENT=local_development
-DOCKER_PORT_EXTERNO=7000
+ID_DEV_AMPLIA=NNNNNNNPP
+ALGOLIA_AMPLIA_APPLICATION_ID=BSDBYRKOOD
+ALGOLIA_AMPLIA_API_KEY=deaef82eae44b6edf83f8af51ef05ef3
+ALGOLIA_AMPLIA_INDEX_CLIENTE=cliente
+CODIGO_USUARIO_EXTERNO=ag_cliente
+CONTRASENA_USUARIO_EXTERNO=ag_cliente_123
+DOCKER_CONTAINER_NAME=ag_cliente_local
+DOCKER_IMAGE=ag_cliente_local
+DOCKER_PORT_EXTERNO=7002
 DOCKER_PORT_INTERNO=8080
-CODIGO_USUARIO_EXTERNO=ag_usuario
-CONTRASENA_USUARIO_EXTERNO=ag_usuario_123
-DOCKER_CONTAINER_NAME=ag_usuario_local
-DOCKER_IMAGE=ag_usuario_local
-```
-
-## Posibles valores en los archivos: 
-global/configs/credentials/firebase
-```
-"local_development" => firebase-admin-personal.json
-"development"       => firebase-admin-dev.json
-"testing"           => firebase-admin-test.json
-"production"        => firebase-admin-prod.json
+ENVIRONMENT=personal
+MONGO_URI=mongodb://admin:password@127.0.0.1:27017/agendalia?authSource=admin
 ```

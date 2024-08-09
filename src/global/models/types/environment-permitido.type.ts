@@ -1,2 +1,2 @@
-export type EnvironmentPermitido = 'local_development' | 'development' | 'testing' | 'production';
-export const listaEnvironmentPermitido = ['local_development', 'development', 'testing', 'production'] as EnvironmentPermitido[];
+export type EnvironmentPermitido = 'personal' | 'development' | 'testing' | 'production';
+export const listaEnvironmentPermitido = ['personal', 'development', 'testing', 'production'] as EnvironmentPermitido[];

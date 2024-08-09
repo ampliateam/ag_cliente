@@ -6,7 +6,7 @@ import {
 } from '@global/models/types';
 
 interface IClienteContacto {
-    codigoAccesoInternacional: string | null;
+    codigoTelefono: string | null;
     contacto: string;
     tipo: TClienteContactoTipo;
     prioridad: TClienteContactoPrioridad;

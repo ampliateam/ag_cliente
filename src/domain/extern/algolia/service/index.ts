@@ -1,0 +1,1 @@
+export * from './operacion-registro.service';

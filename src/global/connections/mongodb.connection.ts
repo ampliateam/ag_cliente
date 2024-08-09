@@ -5,7 +5,7 @@ export const conexionConMongoDB = async () => {
     try {
         await mongoose.connect(envs.mongoURI);
 
-        if (envs.environment === 'local_development')
+        if (envs.environment === 'personal')
             console.info('MongoDB connected!');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
