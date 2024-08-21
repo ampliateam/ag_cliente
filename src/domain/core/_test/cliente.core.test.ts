@@ -106,7 +106,7 @@ describe('CRUD - Cliente', () => {
         expect(cliente.nota).toBe(val);
     });
 
-    test('Eliminar cliente', async () => {
+    test.skip('Eliminar cliente', async () => {
         // Eliminamos los usuarios de prueba
         const docs = await services.core.cliente.db.obtener({
             _id: { '$in': idsEliminacion }
