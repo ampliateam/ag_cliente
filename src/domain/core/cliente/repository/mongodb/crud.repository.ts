@@ -5,18 +5,14 @@ import { mongoToCliente } from "@domain/_helpers";
 
 export const crear = async (dto: CrearClienteDTO): Promise<ICliente> => {
     const clienteMongoDB = await ClienteModel.create(dto.cliente);
-    return await obtener({ id: clienteMongoDB.id });
+    return await obtener({ _id: clienteMongoDB._id.toString() });
 }
 
 export const obtener = async (dto: BuscarClienteDTO): Promise<ICliente> => {
     // Proceso de filtracion
     const filtros:any = {};
-    if (dto.id) {
-        filtros._id = dto.id;
-    } else if (dto.nombreApellido) {
-        filtros.nombre = dto.nombreApellido.nombre;
-        filtros.apellido = dto.nombreApellido.apellido;
-        if (dto.nombreApellido.nota) filtros.nota = dto.nombreApellido.nota;
+    if (dto._id) {
+        filtros._id = dto._id;
     } else return null;
 
     // Obtener todos los clientes que tengan estado "habilitado"
@@ -32,7 +28,7 @@ export const actualizar = async (dto: ActualizarClienteDTO): Promise<ICliente> =
     if (!cliente) return null;
 
     await ClienteModel.updateOne({
-        _id: cliente.id
+        _id: cliente._id
     }, dto.actualizado);
 
     return Object.assign({}, cliente, dto.actualizado);

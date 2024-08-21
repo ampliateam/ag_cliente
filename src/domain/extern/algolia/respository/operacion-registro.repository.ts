@@ -17,10 +17,8 @@ export const guardarEnAlgolia = async (objeto: any, indexName: string) => {
     if (envs.environment === 'personal')
       objeto.idDevAmplia = envs.idDevAmplia;
 
-    const resultado = await index.saveObject(objeto);
-    console.log('Objeto guardado con éxito:', resultado);
+    await index.saveObject(objeto);
   } catch (error) {
-    console.error('Error al guardar el objeto:', error);
     throw error;
   }
 }
@@ -36,10 +34,8 @@ export const actualizarEnAlgolia = async (objeto: any, indexName: string) => {
     else if (envs.environment === 'development')
       objeto.idDevAmplia = 'development';
 
-    const resultado = await index.partialUpdateObject(objeto);
-    console.log('Objeto actualizado con éxito:', resultado);
+    await index.partialUpdateObject(objeto);
   } catch (error) {
-    console.error('Error al actualizar el objeto:', error);
     throw error;
   }
 }
@@ -50,10 +46,8 @@ export const eliminarDeAlgolia = async (objectID: string, indexName: string) => 
     // Obtener una referencia al índice
     const index = client.initIndex(indexName);
 
-    const resultado = await index.deleteObject(objectID);
-    console.log('Objeto eliminado con éxito:', resultado);
+    await index.deleteObject(objectID);
   } catch (error) {
-    console.error('Error al eliminar el objeto:', error);
     throw error;
   }
 }

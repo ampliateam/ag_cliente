@@ -1,19 +1,11 @@
-import {
-    ICliente,
-    IClienteOpcional,
-} from "@global/models/interfaces";
+import { IClienteOpcional } from "@global/models/interfaces";
 
 export interface CrearClienteDTO {
-    cliente: ICliente;
+    cliente: IClienteOpcional;
 }
 
 export interface BuscarClienteDTO {
-    id?: string;
-    nombreApellido?: {
-        nombre: string;
-        apellido: string;
-        nota?: string;
-    }
+    _id?: string;
 }
 
 export interface ActualizarClienteDTO {
