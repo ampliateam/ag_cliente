@@ -29,7 +29,7 @@ export const actualizar = async (dto: ActualizarClienteDTO): Promise<ICliente> =
     await services.extern.algolia.operacionRegistroAlgolia({
         data: {
             ...dto.actualizado,
-            id: result.id,
+            _id: result._id,
         },
         operacion: 'actualizar',
         tipoRegistro: 'cliente',

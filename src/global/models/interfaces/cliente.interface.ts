@@ -25,7 +25,7 @@ interface IClienteRecordatorio {
 }
 
 export interface ICliente {
-    id: string;
+    _id: string;
     idUsuario: string;
     idProfesional: string;
     nombre: string;
@@ -41,7 +41,7 @@ export interface ICliente {
 }
 
 export interface IClienteOpcional {
-    id?: string;
+    _id?: string;
     idUsuario?: string;
     idProfesional?: string;
     nombre?: string;

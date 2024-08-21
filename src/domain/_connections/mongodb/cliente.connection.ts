@@ -1,4 +1,4 @@
-import { Schema, Types, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { constants } from '@global/configs/constants';
 
 // Guardar el valor por defecto de cada campo aqui
@@ -28,18 +28,6 @@ const ClienteSchema = new Schema({
     estado: { type: String, required: true },                                               // TClienteEstado
     fechaCreacion: { type: Date, required: true },
     fechaEliminacion: { type: Date, required: false, default: defaultValue.fechaEliminacion },
-}, {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
-    versionKey: false,
-});
-
-// Duplicate the ID field.
-ClienteSchema.virtual('id').set(function(v: string){
-    this._id = new Types.ObjectId(v);
-});
-ClienteSchema.virtual('id').get(function(){
-    return this._id.toHexString();
-});
+}, { versionKey: false });
 
 export const ClienteModel = model(constants.nombreStore.cliente, ClienteSchema);

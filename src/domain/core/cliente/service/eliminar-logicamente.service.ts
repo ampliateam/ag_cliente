@@ -13,7 +13,7 @@ export const eliminarLogicamente = async (dto: EliminarLogicamenteClienteDTO): P
     });
 
     await services.extern.algolia.operacionRegistroAlgolia({
-        data: { id: result.id },
+        data: { _id: result._id },
         operacion: 'eliminar',
         tipoRegistro: 'cliente',
     });
