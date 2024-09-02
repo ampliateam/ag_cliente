@@ -1,6 +1,5 @@
 import {
     TClienteContactoTipo,
-    TClienteContactoPrioridad,
     TClienteEstado,
     TClienteMensajeRecordatorioTipo,
 } from '@global/models/types';
@@ -9,7 +8,6 @@ interface IClienteContacto {
     codigoTelefono: string | null;
     contacto: string;
     tipo: TClienteContactoTipo;
-    prioridad: TClienteContactoPrioridad;
 }
 
 interface IClienteDireccion {
