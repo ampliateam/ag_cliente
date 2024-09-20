@@ -1,26 +1,9 @@
 import {
-    TClienteContactoTipo,
+    TClienteContacto,
+    TClienteDireccion,
     TClienteEstado,
-    TClienteMensajeRecordatorioTipo,
+    TClienteRecordatorio,
 } from '@global/models/types';
-
-interface IClienteContacto {
-    codigoTelefono: string | null;
-    contacto: string;
-    tipo: TClienteContactoTipo;
-}
-
-interface IClienteDireccion {
-    referencia: string;
-    ubicacion: [number, number] | null;
-}
-
-interface IClienteRecordatorio {
-    recordatorioHabilitado: boolean;
-    recordatorioDobleHabilitado: boolean;
-    tipoMensaje: TClienteMensajeRecordatorioTipo;
-    mensaje: string;
-}
 
 export interface ICliente {
     _id: string;
@@ -29,14 +12,14 @@ export interface ICliente {
     nombre: string;
     apellido: string;
     nota: string;
-    contactos: IClienteContacto[];
-    direccion: IClienteDireccion;
-    recordatorio: IClienteRecordatorio;
+    contactos: TClienteContacto[];
+    direccion: TClienteDireccion;
+    recordatorio: TClienteRecordatorio;
     fechaNacimiento: Date | null;
     estado: TClienteEstado;
     fechaCreacion: Date;
     fechaEliminacion: Date | null;
-}
+};
 
 export interface IClienteOpcional {
     _id?: string;
@@ -45,11 +28,11 @@ export interface IClienteOpcional {
     nombre?: string;
     apellido?: string;
     nota?: string;
-    contactos?: IClienteContacto[];
-    direccion?: IClienteDireccion;
-    recordatorio?: IClienteRecordatorio;
+    contactos?: TClienteContacto[];
+    direccion?: TClienteDireccion;
+    recordatorio?: TClienteRecordatorio;
     fechaNacimiento?: Date | null;
     estado?: TClienteEstado;
     fechaCreacion?: Date;
     fechaEliminacion?: Date | null;
-}
+};

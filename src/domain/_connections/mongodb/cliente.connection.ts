@@ -4,30 +4,43 @@ import {
     verificarClienteDucplicadoCreacion,
     verificarClienteDucplicadoActualizacion,
 } from './middlewares/cliente';
+import { ICliente } from '@global/models/interfaces';
+import {
+    TClienteContacto,
+    TClienteDireccion,
+    TClienteRecordatorio
+} from '@global/models/types';
 
-// Guardar el valor por defecto de cada campo aqui
+// Definir la interfaz para el documento
+interface IClienteMongoose extends Document, Omit<ICliente, '_id'> {};
+
+// Guardar el valor por defecto de cada campo aqui (para los required=false)
 const defaultValue = {
     idUsuario: '',
     nota: '',
-    direccion: { referencia: '', ubicacion: [0,0] },
+    direccion: {
+        referencia: '',
+        ubicacion: [0,0]
+    } as TClienteDireccion,
     recordatorio: { 
         recordatorioHabilitado: false,
         recordatorioDobleHabilitado: false,
         tipoMensaje: 'mensaje-corto-1',
         mensaje: '',
-    },
+    } as TClienteRecordatorio,
     fechaNacimiento: null,
     fechaCreacion: Date.now,
     fechaEliminacion: null,
 };
 
-const ClienteSchema = new Schema({
+// Schema de mongoose
+const ClienteSchema = new Schema<IClienteMongoose>({
     idUsuario: { type: String, required: false, default: defaultValue.idUsuario },
     idProfesional: { type: String, required: true },
     nombre: { type: String, required: true },
     apellido: { type: String, required: true },
     nota: { type: String, required: false, default: defaultValue.nota },
-    contactos: { type: Array, required: true },                                             // IClienteContacto[]
+    contactos: { type: Array as unknown as TClienteContacto[], required: true },                                             // IClienteContacto[]
     direccion: { type: Object, required: false, default: defaultValue.direccion },          // IClienteDireccion
     recordatorio: { type: Object, required: false, default: defaultValue.recordatorio },    // IClienteRecordatorio
     fechaNacimiento: { type: Date, required: false, default: defaultValue.fechaNacimiento },
@@ -76,4 +89,7 @@ ClienteSchema.pre('findOneAndUpdate', async function (next) {
     }
 });
 
-export const ClienteModel = model(constants.nombreStore.cliente, ClienteSchema);
+export const ClienteModel = model<IClienteMongoose>(
+    constants.nombreStore.cliente,
+    ClienteSchema
+);
