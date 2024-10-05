@@ -1,4 +1,4 @@
-import { ICliente } from "@global/models/interfaces";
+import { ICliente } from "@global/models/ag_cliente";
 import { EliminarLogicamenteClienteDTO } from "../dto";
 import * as repository from '../repository/mongodb';
 import { services } from "@domain/services";

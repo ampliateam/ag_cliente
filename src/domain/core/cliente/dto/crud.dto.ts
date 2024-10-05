@@ -1,5 +1,4 @@
-import { IClienteOpcional } from "@global/models/interfaces";
-import { TClienteEstado } from "@global/models/types";
+import { IClienteOpcional, TClienteEstado } from "@global/models/ag_cliente";
 
 export interface CrearClienteDTO {
     cliente: IClienteOpcional;

@@ -3,7 +3,7 @@ import {
     TClienteDireccion,
     TClienteEstado,
     TClienteRecordatorio,
-} from '@global/models/types';
+} from '@global/models/ag_cliente';
 
 export interface ICliente {
     _id: string;

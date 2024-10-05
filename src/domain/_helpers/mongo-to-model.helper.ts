@@ -1,5 +1,4 @@
-import { ICliente } from "@global/models/interfaces";
-import { IParametroSistema } from "@domain/_models/interfaces";
+import { ICliente, IParametroSistema } from "@global/models/ag_cliente";
 
 const mongoToModel = (mongo: any) => {
     if (!mongo) return null;

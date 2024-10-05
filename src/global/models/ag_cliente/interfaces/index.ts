@@ -1,2 +1,2 @@
-export * from './error-capa-domain.interface';
+export * from './cliente.interface';
 export * from './parametro-sistema.interface';

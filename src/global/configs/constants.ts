@@ -13,6 +13,7 @@ const constantes = {
 };
 
 if (envs.modoTest) {
+    // No agregar el de `ParametrosSistema`
     constantes.nombreStore.parametroSistema += '_test';
     constantes.nombreStore.cliente += '_test';
 }

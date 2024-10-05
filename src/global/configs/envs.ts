@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { EnvironmentPermitido } from '@global/models/types';
+import { EnvironmentPermitido } from '@global/models/_system';
 
 dotenv.config();
 

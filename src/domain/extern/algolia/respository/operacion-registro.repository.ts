@@ -1,5 +1,6 @@
-import { envs } from '@global/configs/envs';
 import algoliasearch from 'algoliasearch';
+import { envs } from '@global/configs/envs';
+import { manejadorDeErrorAlgolia } from '@domain/_errors';
 
 // Configuración de Algolia 
 const applicationId = envs.algoliaAmpliaApplicationId;
@@ -7,6 +8,9 @@ const apiKey = envs.algoliaAmpliaApiKey;
 
 // Inicializar el cliente de Algolia
 const client = algoliasearch(applicationId, apiKey);
+
+// Manejador de error
+const manejadorDeError = manejadorDeErrorAlgolia;
 
 // Función para guardar datos en Algolia
 export const guardarEnAlgolia = async (objeto: any, indexName: string) => {
@@ -19,7 +23,7 @@ export const guardarEnAlgolia = async (objeto: any, indexName: string) => {
 
     await index.saveObject(objeto);
   } catch (error) {
-    throw error;
+    manejadorDeError(error);
   }
 }
 
@@ -36,7 +40,7 @@ export const actualizarEnAlgolia = async (objeto: any, indexName: string) => {
 
     await index.partialUpdateObject(objeto);
   } catch (error) {
-    throw error;
+    manejadorDeError(error);
   }
 }
 
@@ -48,6 +52,6 @@ export const eliminarDeAlgolia = async (objectID: string, indexName: string) => 
 
     await index.deleteObject(objectID);
   } catch (error) {
-    throw error;
+    manejadorDeError(error);
   }
 }

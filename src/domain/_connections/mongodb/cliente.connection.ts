@@ -4,12 +4,12 @@ import {
     verificarClienteDucplicadoCreacion,
     verificarClienteDucplicadoActualizacion,
 } from './middlewares/cliente';
-import { ICliente } from '@global/models/interfaces';
 import {
+    ICliente,
     TClienteContacto,
     TClienteDireccion,
     TClienteRecordatorio
-} from '@global/models/types';
+} from '@global/models/ag_cliente';
 
 // Definir la interfaz para el documento
 interface IClienteMongoose extends Document, Omit<ICliente, '_id'> {};
